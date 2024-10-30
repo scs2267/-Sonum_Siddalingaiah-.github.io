@@ -37,6 +37,6 @@ I graduated from the College of William and Mary in 2023 with a Bachelors of Art
 
 Link back to home page:
 
-
+* [Home](index.html)
 
 

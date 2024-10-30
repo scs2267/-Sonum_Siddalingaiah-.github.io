@@ -9,15 +9,19 @@ output:
 
 # Introduction to Sonum Siddalingaiah
 
+<img src="prof_headshot.jpg" style="width:75%">
+
 I am a second year MPH student at Mailman. If you click the following links, you can learn more about my academic and professional experience:
 
+* [Professional Experience](professional_experience.html)
 
+Or see some fun plots I've made:
 
+* [Plots Dashboard](Plots Dashboard!!!)
 
+#Relevant Links
 
-# Relevant Links to Accounts
-
-Here are some useful links to learn more about me and my work:
-
-
+* [Github](Sonum_Siddalingaiah.github.io)
+* [Email](scs2267@cumc.columbia.edu)
+* [LinkedIn](linkedin.com/in/sonum-siddalingaiah-620161282)
 
