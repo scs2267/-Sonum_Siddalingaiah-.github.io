@@ -17,7 +17,7 @@ data("rest_inspec")
 ```{r}
 nyc_inspections = rest_inspec %>%
   separate(inspection_date, into = c("year", "month", "day")) %>% 
-  filter(as.numeric(year) == 2017) %>% 
+  filter(as.numeric(year) == 2017, month == "06") %>% 
   select(boro, camis, critical_flag, cuisine_description, year, month, score, zipcode) %>% drop_na()
 ```
 
@@ -55,11 +55,8 @@ nyc_inspections %>%
 
 ```{r}
 nyc_inspections %>% 
-  group_by(month) %>% 
-  mutate(
-    max_score = max(score),
-    text_label = str_c("Month: ", month, "\nScore: ", max_score)) %>%
-  plot_ly(x =~month, y = ~score, type = "bar", text = ~text_label, color = ~month, colors = "viridis") %>% 
+  filter(cuisine_description == "Pizza"|cuisine_description == "Donuts"|cuisine_description == "Ice Cream, Gelato, Yogurt, Ices"|cuisine_description == "Bakery") %>% 
+  plot_ly(x =~cuisine_description, y = ~score, type = "bar", color = ~cuisine_description, colors = "viridis") %>% 
   layout(
   yaxis = list(tickformat = ","))
 ```
