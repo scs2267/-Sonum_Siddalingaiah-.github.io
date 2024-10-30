@@ -56,7 +56,7 @@ nyc_inspections %>%
 ```{r}
 nyc_inspections %>% 
   filter(cuisine_description == "Pizza"|cuisine_description == "Donuts"|cuisine_description == "Ice Cream, Gelato, Yogurt, Ices"|cuisine_description == "Bakery") %>% 
-  plot_ly(x =~cuisine_description, y = ~score, type = "bar", color = ~cuisine_description, colors = "viridis") %>% 
+  plot_ly(x =~cuisine_description, y = ~score, type = "bar", color = ~cuisine_description, colors = "viridis",  width = 0.0000001) %>% 
   layout(
   yaxis = list(tickformat = ","))
 ```
