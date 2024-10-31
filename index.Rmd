@@ -9,7 +9,7 @@ output:
 
 # Introduction to Sonum Siddalingaiah
 
-<img src="prof_headshot.jpg" style="width:75%">
+<img src="prof_headshot.jpg" style="width:65%">
 
 I am a second year MPH student at Mailman. If you click the following links, you can learn more about my academic and professional experience:
 
@@ -17,11 +17,11 @@ I am a second year MPH student at Mailman. If you click the following links, you
 
 Or see some fun plots I've made:
 
-* [Plots Dashboard](Plots Dashboard!!!)
+* [Plots Dashboard](dashboard.html)
 
-#Relevant Links
+# Relevant Links
 
-* [Github](Sonum_Siddalingaiah.github.io)
+* [Github](https://github.com/scs2267/Sonum_Siddalingaiah.github.io.git)
 * [Email](scs2267@cumc.columbia.edu)
-* [LinkedIn](linkedin.com/in/sonum-siddalingaiah-620161282)
+* [LinkedIn](https://linkedin.com/in/sonum-siddalingaiah-620161282)
 

@@ -4,6 +4,10 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    source: embed
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -18,7 +22,7 @@ data("rest_inspec")
 nyc_inspections = rest_inspec %>%
   separate(inspection_date, into = c("year", "month", "day")) %>% 
   filter(as.numeric(year) == 2017, month == "06") %>% 
-  select(boro, camis, critical_flag, cuisine_description, year, month, score, zipcode) %>% drop_na()
+  select(boro, critical_flag, cuisine_description, score, zipcode) %>% drop_na()
 ```
 
 
@@ -36,7 +40,10 @@ nyc_inspections %>%
          zipcode = as.factor(zipcode),
          text_label = str_c("Average Score: ", average_score, "\nZip Code: ",
          zipcode, "\nStatus: ", critical_flag)) %>% 
-  plot_ly(y = ~average_score, x = ~ zipcode, color = ~critical_flag, text = ~text_label, type = "scatter", mode = "markers")
+  plot_ly(y = ~average_score, x = ~ zipcode, color = ~critical_flag, text = ~text_label, type = "scatter", mode = "markers") %>% 
+  layout(
+    xaxis = list(title = "Zipcode"),
+    yaxis = list(title = "Inspection Score")) 
 
 ```
 
@@ -48,16 +55,19 @@ Column {data-width=350}
 ```{r}
 nyc_inspections %>% 
   mutate(boro= fct_reorder(boro, score)) %>%
-  plot_ly(x =~boro, y = ~score, type = "box", color = ~boro, colors = "viridis")
+  plot_ly(x =~boro, y = ~score, type = "box", color = ~boro, colors = "viridis") %>% 
+  layout(
+    xaxis = list(title = "Borough"),
+    yaxis = list(title = "Inspection Score")) 
 ```
 
-### Chart C - Inspection Scores by Month (Bar Graph)
+### Chart C - Inspection Scores of Pizza and Dessert Restaurants (Bar Graph)
 
 ```{r}
 nyc_inspections %>% 
   filter(cuisine_description == "Pizza"|cuisine_description == "Donuts"|cuisine_description == "Ice Cream, Gelato, Yogurt, Ices"|cuisine_description == "Bakery") %>% 
   plot_ly(x =~cuisine_description, y = ~score, type = "bar", color = ~cuisine_description, colors = "viridis",  width = 0.0000001) %>% 
   layout(
-  yaxis = list(tickformat = ","))
+    xaxis = list(title = "Food Type"),
+    yaxis = list(title = "Inspection Score", tickformat = ",")) 
 ```
-
